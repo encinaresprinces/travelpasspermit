@@ -6,8 +6,8 @@
 
 body {
   font: 13px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
-  color: #blue;
-  background: maroon;
+  color: #black;
+  background: lightgray;
 }
 
 .login {
@@ -176,14 +176,14 @@ input[type=submit]:active {
 </style>
 </header>
 <body>
-  <h1>TravelPass Permit</h1>
+  <center><h1>TravelPass Permit</h1></center>
 <div class="login">
   <h1>Branch Location</h1>
   <form method="POST" action="/PList/new">
-    <p><input type="text" id="TBarangay" name="TBarangay" placeholder="TBarangay"></p>
-    <p><input type="text" id="Amunicipal" name="Amunicipal"  placeholder="Amunicipal"></p>
-    <p><input type="text" id="Oaddress" name="Oaddress"  placeholder="Oaddress"></p>
-    <p class="submit"><input type="submit" id="btnLogin" name="btnLogin" value="Login"></p>
+    <p><input type="text" id="TBarangay" name="TBarangay" placeholder="TBarangay" required></p>
+    <p><input type="text" id="Amunicipal" name="Amunicipal"  placeholder="Amunicipal" required></p>
+    <p><input type="text" id="Oaddress" name="Oaddress"  placeholder="Oaddress" required></p>
+    <p class="submit"><input type="submit" id="btnLogin" name="btnLogin" value="Login" required></p>
 {% csrf_token %}
 </div></form>
 </body>

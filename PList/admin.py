@@ -1,6 +1,5 @@
-#from django.contrib import admin
-#from PList.models import Barangay, TravelerProfile, Trequest, Requirements, Status
-# Register your models here.
+##from PList.models import Barangay, TravelerProfile, Trequest, Requirements, Status
+ #Register your models here.
 #admin.site.register(Barangay)
 #admin.site.register(TravelerProfile)
 #admin.site.register(Trequest)

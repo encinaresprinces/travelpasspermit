@@ -1,20 +1,41 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from PList.models import  Barangay, TravelerProfile 
+from PList.models import  Barangay, TravelerProfile
 
 
 def home_page(request):
     barangays = Barangay.objects.all() 
-    return render(request, 'homepage.html',{'barangays' : barangays })
+    return render(request, 'home.html',{'barangays' : barangays })
+
+def login(request):
+    #login_ = Barangay.objects.get(id=barangay_id)
+    return render(request, 'Login.html')
+
+
+def signup1(request):
+
+    return render(request, 'Sgnup.html')
+
+def signup2(request):
+
+    return render(request, 'Signup.html')
+
+
+def signup3(request):
+
+    return render(request, 'ssup.html')
+
+def signup4(request):
+
+    return render(request, 'ssupp.html')
 
 
 
-def view_list(request, barangay_id):
-    barangay_ = Barangay.objects.get(id=barangay_id)
-    return render(request, 'SignUp.html', {'barangay': barangay_})
 
 
-def new_list(request):
+
+
+'''def new_list(request):
     barangay_ = Barangay.objects.create()
     #Item.objects.create(npet=request.POST['pet'],nname =request.POST['owner'],nAddress=request.POST['address'],nBreed =request.POST['breed'],nDay =request.POST['birthday'], barangay=barangay_)
     return redirect(f'/PList/{barangay_.id}/')
@@ -54,7 +75,7 @@ def DataBarangay(request):
 
     mf = UserProfile.objects.order_by(email="Justcasey@gmail.com")
     for x in qs:
-        res += x.fullname + x.email +'<br>'
+        res += x.fullname + x.email +'<br>'''
 
 
 '''def add_item(request, list_id):

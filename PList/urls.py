@@ -1,10 +1,26 @@
-from django.conf.urls import url
+from django.conf.urls import url , include
+from django.contrib import admin
+from django.urls import path
 from PList import views
-#from django.urls import path
-#from django.http import HttpResponse
 
-urlpatterns = [    
-    url(r'^$', views.home_page, name='home_page'),    
-    url(r'^PList/new$', views.new_list, name='new_list'),    
-    url(r'^PList/(\d+)/$', views.view_list, name='view_list'),    
-    url(r'^PList/(\d+)/add_item$', views.add_item, name='add_item')]
+
+urlpatterns = [
+	url(r'^$', views.home_page, name='home_page'),
+	url('Login/', views.login, name='login'),
+	url('Sgnup/', views.signup1, name='sgnup'),
+	url('signup/', views.signup2, name='signup'),
+	url('ssup/', views.signup3, name='ssup'),
+	url('ssupp/', views.signup4, name='ssupp'),
+]
+
+
+
+
+'''urlpatterns = [
+	path('', views.home_page),
+	path('Login.html', views.login, name='Login'),
+	path('Sgnup.html', views.signup1, name='Sgnup'),
+	path('Signup.html', views.signup2, name='Signup'),
+	path('ssup.html', views.signup3, name='ssup'),
+	path('ssupp.html', views.signup4, name='ssupp'),
+]'''

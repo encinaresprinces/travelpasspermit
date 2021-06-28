@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TravelPass Permit</title>
+<body>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+<form method="POST" action="update/{{barangays.id}}">
+{% csrf_token %}
+	<label for="zbarangay">BARANGAY</label>
+	<input type="text" id="TBarangay" name="TBarangay" value="{{barangays.id}}" required="required"/>
+
+	<label for="municipal">MUNICIPAL</label>
+	<input type="text" id="Amunicipal" name="Amunicipal" value="{{barangays.id}}" required="required"/>
+
+	<label for="address">ADDRESS</label>
+	<input type="text" id="Oaddress"  name="Oaddress" value="{{barangays.id}}" required="required"/>
+
+
+<button id="submit" type="submit">Submit</button></form>
+
+</body>
+</html>

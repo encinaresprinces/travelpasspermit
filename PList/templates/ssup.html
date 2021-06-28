@@ -2,7 +2,47 @@
 <html>
 <head>
 	<title>TravelPass Permit</title>
+<style>
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+</style>
 
 
 <style>
@@ -87,7 +127,7 @@ h1, h2, h3, h4, h5, h6 {
     <p>TravelPass Permit, an innovative travel management system for local travelers who are returning to or visiting different localities in time for the holidays, for vacation or for business.</p><br>
 
       <center><p>Here Are The TravelPass Permit You Need To Fill In & Get Approval From The Officials</p></center>
-      <form  method="POST" action="/PList/{{ barangay.id }}/add_item">
+      <form  method="POST" action="/signup4">
       <label for="Rswabresult"><b>Swab Result</b></label><br></label>
       <input type="radio" id="Rswab" name="Rswab" value="Negative">
       <label for="negative">Negative</label><br>
@@ -101,16 +141,16 @@ h1, h2, h3, h4, h5, h6 {
       <input type="file" id="myfile" name="myfile"></center><br>
       
       <label for="Rtransportation"><b><br>Transportation Vechicle</b><br></b></label>
-      <input type="text" id="Rtranspo" placeholder="Enter Transportation" name="Rtranspo"><br><br>
+      <input class="w3-input w3-padding-16" type="text" id="Rtranspo" placeholder="Enter Transportation" name="Rtranspo"><br><br>
 
       <select name="ptransportation" id="ptransportation-select"><br>
     <option value="">--Please choose a type--</option>
     <option value="public Transportation">Public Transportation</option>
     <option value="private Transportation">Private Transportation</option>
 
-</select><br>
+</select><br><br>
       
-      <center><p><a href="/ssupp" type="submit" class="w3-bar-item w3-button">Click Next</a></p></center>
+     <button id="submit" type="submit">Submit</button>
       
  
 

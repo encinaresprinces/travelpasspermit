@@ -4,6 +4,45 @@
 	<title>TravelPass Permit</title>
 
 <style>
+  body {
+  background: url(https://images.unsplash.com/photo-1544306094-e2dcf9479da3) no-repeat;
+  /* Keep the inherited background full size. */
+  background-attachment: fixed;
+  background-size: cover;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container {
+  width: 30rem;
+  height: 20rem;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+  border-radius: 5px;
+  position: relative;
+  z-index: 1;
+  background: inherit;
+  overflow: hidden;
+}
+
+.container:before {
+  content: "";
+  position: absolute;
+  background: inherit;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+  filter: blur(10px);
+  margin: -20px;
+}
+</style>
+
+
+<style>
 .dropbtn {
   background-color: #4CAF50;
   color: white;
@@ -51,10 +90,11 @@
     <a href="" class="w3-bar-item w3-button">TravelPass Permit</a>
     <!-- Right-sided navbar links. Hide them on small screens -->
     <div class="w3-right w3-hide-small">
-   <!--<ul>
+   <ul>
   
-    <a href="home.html" class="w3-bar-item w3-button">Home</a>
-  </ul> !-->
+    <a href="http://trvlpaspermit.ph" class="w3-bar-item w3-button">Home</a>
+   
+  </ul> 
   </div>
   </div>
   </div>
@@ -80,7 +120,7 @@ h1, h2, h3, h4, h5, h6 {
     <h1>Traveler Profile</h1>
     <p>TravelPass Permit, an innovative travel management system for local travelers who are returning to or visiting different localities in time for the holidays, for vacation or for business.</p><br>
  
-    <form action="/action_page.php" target="_blank">
+    <form method="POST" action="/{{barangay.id}}/add_item">
       
       <center><p>Here Are The TravelPass Permit You Need To Fill In & Get Approval From The Officials</p></center>
       <form  method="POST" action="/PList/{{ barangay.id }}/add_item"><br><br>
@@ -90,25 +130,43 @@ h1, h2, h3, h4, h5, h6 {
       <label for="Fbirthday"><b>Birthday</b></label>
       <input class="w3-input w3-padding-16" type="text" id="Fbirthday" placeholder="Enter Birthday" name="Fbirthday"><br><br>
 
-      <center><label for="Fgender"><b>Gender</b></label><br></label></center>
-      <input type="radio" id="Fgender" name="Fgender" value="Male">
-      <label for="negative">Male</label><br>
-      <input type="radio" id="Fgender" name="Fgender" value="Female">
-      <label for="positive">Female</label><br><br>
+
+       <select name="Gender" id="Gender-select">
+    <option value=""companion>--Please choose a Gender--</option>
+    <option value="male">male</option>
+    <option value="female">female</option>
+
+    </select><br><br>
+      <br>
 
       <label for="Faddress"><b>Address</b></label>
       <input class="w3-input w3-padding-16" type="text" id="Faddress" placeholder="Enter Address" name="Faddress"><br><br>
 
-      <label for="Fcnumber"><b>Phone Number</b></label>
-      <input class="w3-input w3-padding-16" type="Number" id="Fcnumber" placeholder="Enter Phone Number" name="Fcnumber"><br><br>
+      <label for="ccnumber"><b>Phone Number</b></label>
+      <input class="w3-input w3-padding-16" type="Number" id="ccnumber" placeholder="Enter Phone Number" name="ccnumber"><br><br>
       
       <label for="Femail Address"><b>Email Address</b></label><br>
-      <input class="w3-input w3-padding-16" type="text" id="Femail Address" placeholder="Enter Email Address"><br><br>
+      <input class="w3-input w3-padding-16" type="text" id="eaddress" name="eaddress" placeholder="Enter Email Address"><br><br>
 
-     <center><p><a href="/signup" type="submit" class="w3-bar-item w3-button">Click Next</a></p></center>
+
+     <button id="submit" type="submit">Submit</button></form>
+
       
       
     </form>
+  <table id="tabler" name='tr'>
+    {% for travelerprofile in barangay.travelerprofile_set.all %}
+    <tr>
+      <!{{ forloop.counter }}:  -->
+      <td>{{ forloop.counter }} : {{travelerprofile.Tname  }}</td>
+      <td>{{ travelerprofile.birthday}}</td>
+      <td>{{ travelerprofile.gender }}</td>
+      <td>{{ travelerprofile.address}}</td>
+      <td>{{ travelerprofile.cnumber}}</td>
+      <td>{{ travelerprofile.email }}</td>
+    
+    </tr> {% endfor %} </table>
+</table>
   </div>
   
 
